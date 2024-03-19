@@ -1,0 +1,10 @@
+a {
+    text-decoration: none;
+    margin-top: 10px;
+    font-weight: bold;
+    color: black;
+}
+
+.example-full-width {
+    width: 100%;
+}

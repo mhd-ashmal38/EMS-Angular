@@ -1,0 +1,76 @@
+<div class="body d-flex border border-light pt-1">
+
+    <!-- sidebar -->
+    <div style="width: 200px; height: 90vh; background-color: #8AAAE5;" class="sidebar p-3 d-flex flex-column">
+
+        <a routerLink="/home">Home</a>
+
+        <a routerLink="/users">Users</a>
+
+    </div>
+
+    <!-- dashboard -->
+    <div class="dashboard p-3 w-100">
+
+        <!-- title -->
+        <div class="title">
+            <h1>Add New User</h1>
+        </div>
+
+        <!-- User details -->
+        <div class="user-details mt-5 shadow border rounded p-3">
+
+            <form #addUserform="ngForm">
+                <!-- user id -->
+                <div class="form-floating mb-3">
+                    <input type="text" #id="ngModel" [(ngModel)]="user.id" name="id" class="form-control" id="floatingInputId" placeholder="User Id" required pattern="[0-9]*">
+                    <label for="floatingInputId">User Id</label>
+                </div>
+
+                <!-- validation - error message for id -->
+                <div *ngIf="id.invalid&&id.touched" class="mb-3 text-danger">Invalid Id</div>
+
+                <!-- user name -->
+                <div class="form-floating mb-3">
+                    <input type="text" #name="ngModel" [(ngModel)]="user.name" name="name" class="form-control" id="floatingUsername" placeholder="Username" required pattern="[a-zA-Z ]*">
+                    <label for="floatingUsername">Username</label>
+                </div>
+
+                <!-- error message for name -->
+                <div *ngIf="name.invalid&&name.touched" class="mb-3 text-danger">Invalid Username</div>
+
+                <!-- email -->
+                <div class="form-floating mb-3">
+                    <input type="email" #email="ngModel" [(ngModel)]="user.email" name="email" class="form-control" id="floatingemail" placeholder="Email" email required>
+                    <label for="floatingemail">Email</label>
+                </div>
+
+                <!-- error message for email -->
+                <div *ngIf="email.invalid&&email.touched" class="mb-3 text-danger">Invalid Email</div>
+
+                <!-- drop down -->
+                <div class="form-floating mb-3">
+                    <select id="floatingStatus" #active="ngModel" [(ngModel)]="user.active" name="active" class="form-control" required>
+                        <option disabled selected hidden></option>
+                        <option value="1">Active</option>
+                        <option value="0">InActive</option>
+                    </select>
+                    <label for="floatingStatus">Status</label>
+                </div>
+
+                <!-- error message for status -->
+                <div *ngIf="active.invalid&&active.touched" class="mb-3 text-danger">Invalid Status</div>
+
+                <!-- buttons -->
+                <div class="mt-5 text-center">
+                    <button class="btn btn-warning" (click)="cancel()">Cancel</button>
+                    <button [disabled]="addUserform.invalid" (click)="addUser()" class="btn btn-success ms-5">Save</button>
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>

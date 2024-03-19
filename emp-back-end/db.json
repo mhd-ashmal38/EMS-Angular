@@ -1,0 +1,29 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "admin user",
+      "email": "admin@demoapp.com",
+      "active": "1",
+      "password": "demoapp123"
+    },
+    {
+      "id": "2",
+      "name": "Arya",
+      "email": "unnimol@gmail.com",
+      "active": "0"
+    },
+    {
+      "id": "4",
+      "name": "Babs",
+      "email": "babs@gmail.com",
+      "active": "1"
+    },
+    {
+      "id": "5",
+      "name": "Nainika",
+      "email": "nainooooz@gmail.com",
+      "active": "0"
+    }
+  ]
+}

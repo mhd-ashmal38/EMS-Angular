@@ -1,0 +1,56 @@
+<div class="body d-flex border border-light pt-1">
+
+    <!-- sidebar -->
+    <div style="width: 200px; height: 90vh; background-color: #8AAAE5;" class="sidebar p-3 d-flex flex-column" >
+
+        <a routerLink="/home">Home</a>
+
+        <a routerLink="/users">Users</a>
+
+    </div>
+
+    <!-- dashboard -->
+    <div class="dashboard p-3 w-100">
+        
+        <!-- title -->
+        <div class="title d-flex justify-content-between">
+            <h1>User List : {{today | date:'medium'}} </h1>
+            <button routerLink="add" class="btn btn-outline-warning"><i class="fa-solid fa-user-plus"></i> Add</button>
+        </div>
+
+        <!-- search -->
+        <div class="d-flex align-items-center m-5">
+            Search: <input type="text" [(ngModel)]="searchKey" class="form-control ms-2 w-50" placeholder="search by username">
+        </div>
+
+        <!-- table -->
+        <div class="table mt-3">
+            <table class="table shadow border p-2">
+                <thead>
+                    <tr>
+                        <th>User Id</th>
+                        <th>User Name</th>
+                        <th>Email</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let user of allusers|search:searchKey:'name'">
+                        <td>{{user.id}}</td>
+                        <td>{{user.name}}</td>
+                        <td>{{user.email}}</td>
+                        <td><span [ngClass]="user.active==='1'?'Active':'Inactive'">{{user.active==="1"?'Active':'Inactive'}}</span></td>
+                        <td>
+                            <!-- edit -->
+                            <a routerLink="edit/{{user.id}}"><i class="fa-solid fa-pen-to-square me-3 btn text-success fs-5"></i></a>
+                            <!-- delete -->
+                            <a (click)="deleteUser(user.id)"><i class="fa-solid fa-trash btn text-danger fs-5"></i></a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>

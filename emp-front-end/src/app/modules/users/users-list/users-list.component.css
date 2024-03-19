@@ -1,0 +1,21 @@
+
+a{
+    text-decoration: none;
+    margin-top: 10px;
+    font-weight: bold;
+    color: white;
+}
+
+.Active{
+    background-color: green;
+    padding: 8px;
+    border-radius: 8px;
+    color: white;
+}
+
+.Inactive{
+    background-color: red;
+    padding: 8px;
+    border-radius: 8px;
+    color: white;
+}
